@@ -58,6 +58,37 @@ if (skillsSection) {
 }
 
 // EmailJS integration
+// (function () {
+//     emailjs.init("vv1JHayF91sEe2hnE"); // Replace with your EmailJS public key
+// })();
+
+// const contactForm = document.getElementById("contactForm");
+
+// if (contactForm) {
+//     contactForm.addEventListener("submit", function (e) {
+//         e.preventDefault();
+
+//         emailjs.sendForm("service_f6v5dud", "template_h6eubxh", this)
+//             .then(function () {
+//                 Swal.fire({
+//                     icon: 'success',
+//                     title: 'Message Sent!',
+//                     text: 'Thanks for reaching out. I will contact you soon.',
+//                     confirmButtonColor: '#3085d6'
+//                 });
+//                 contactForm.reset();
+//             }, function (error) {
+//                 Swal.fire({
+//                     icon: 'error',
+//                     title: 'Oops...',
+//                     text: 'Something went wrong! ' + error.text,
+//                     confirmButtonColor: '#d33'
+//                 });
+//                 console.error("EmailJS error:", error);
+//             });
+//     });
+// }
+// Initialize EmailJS with your public key
 (function () {
     emailjs.init("vv1JHayF91sEe2hnE"); // Replace with your EmailJS public key
 })();
@@ -68,8 +99,11 @@ if (contactForm) {
     contactForm.addEventListener("submit", function (e) {
         e.preventDefault();
 
+        console.log("Attempting to send email from:", window.location.href);
+
         emailjs.sendForm("service_f6v5dud", "template_h6eubxh", this)
             .then(function () {
+                console.log("Email sent successfully!");
                 Swal.fire({
                     icon: 'success',
                     title: 'Message Sent!',
@@ -77,17 +111,19 @@ if (contactForm) {
                     confirmButtonColor: '#3085d6'
                 });
                 contactForm.reset();
-            }, function (error) {
+            })
+            .catch(function (error) {
+                console.error("EmailJS error:", error);
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    text: 'Something went wrong! ' + error.text,
+                    text: 'Email service unavailable. Please contact me directly at your-email@example.com',
                     confirmButtonColor: '#d33'
                 });
-                console.error("EmailJS error:", error);
             });
     });
 }
+
 
 // Navbar background change on scroll
 window.addEventListener('scroll', () => {
