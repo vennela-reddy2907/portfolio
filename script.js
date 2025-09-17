@@ -108,7 +108,7 @@ if (contactForm) {
                     icon: 'success',
                     title: 'Message Sent!',
                     text: 'Thanks for reaching out. I will contact you soon.',
-                    confirmButtonColor: '#3085d6'
+                    confirmButtonColor: '#3085d5'
                 });
                 contactForm.reset();
             })
