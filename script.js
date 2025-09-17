@@ -59,7 +59,7 @@ if (skillsSection) {
 
 // EmailJS integration
 (function () {
-    emailjs.init("R3tVmMKpu4XBVKGj6"); // Replace with your EmailJS public key
+    emailjs.init("vv1JHayF91sEe2hnE"); // Replace with your EmailJS public key
 })();
 
 const contactForm = document.getElementById("contactForm");
@@ -68,7 +68,7 @@ if (contactForm) {
     contactForm.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        emailjs.sendForm("service_gwkza6e", "template_bu97edq", this)
+        emailjs.sendForm("service_f6v5dud", "template_h6eubxh", this)
             .then(function () {
                 Swal.fire({
                     icon: 'success',
